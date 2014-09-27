@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Countdown clock</title>
+<script>
+var el_status;
+var target_date = new Date(2012, 11, 21, 18, 0, 0);
+
+function countdown() {
+	var now = new Date();
+	var dim = new Date(now.getUTCFullYear(), now.getUTCMonth() + 1, 0).getDate();    // Days in month
+
+	var years   = target_date.getUTCFullYear() - now.getUTCFullYear();
+	var months  = target_date.getUTCMonth()    - now.getUTCMonth();
+	var days    = target_date.getUTCDate()     - now.getUTCDate();
+	var hours   = target_date.getUTCHours()    - now.getUTCHours();
+	var minutes = target_date.getUTCMinutes()  - now.getUTCMinutes();
+	var seconds = target_date.getUTCSeconds()  - now.getUTCSeconds();
+
+	if (seconds < 0) { seconds += 60;  minutes-- }
+	if (minutes < 0) { minutes += 60;  hours--   }
+	if (hours   < 0) { hours   += 24;  days--    }
+	if (days    < 0) { days    += dim; months--  }
+	if (months  < 0) { months  += 12;  years--   }
+
+	el_status.innerHTML = target_date + "<br />" + now + "<br />";
+	if (years < 0) {
+		el_status.innerHTML += "The date has passed.";
+	}
+	else {
+		if (seconds < 10) { seconds = "0" + seconds }
+		if (minutes < 10) { minutes = "0" + minutes }
+		el_status.innerHTML += "Time remaining: " + years + " year(s), " + months + " month(s), " + days + " day(s), " + hours + ":" + minutes + ":" + seconds;
+	}
+}
+
+window.onload = function() {
+	el_status = document.getElementById("status");
+	countdown();    // Call the function once now so we don't have to wait a second for the first update to display
+	setInterval("countdown()", 1000);
+}
+</script>
+</head>
+
+<body>
+	<p id="status"></p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<script>
+var target_date = new Date(2013, 01, 12, 19, 0, 0);
+function countdown() {
+	var now = new Date();
+	var dim = new Date(now.getUTCFullYear(), now.getUTCMonth() + 1, 0).getDate();    // Days in month
+
+	var years   = target_date.getUTCFullYear() - now.getUTCFullYear();
+	var months  = target_date.getUTCMonth()    - now.getUTCMonth();
+	var days    = target_date.getUTCDate()     - now.getUTCDate();
+	var hours   = target_date.getUTCHours()    - now.getUTCHours();
+	var minutes = target_date.getUTCMinutes()  - now.getUTCMinutes();
+	var seconds = target_date.getUTCSeconds()  - now.getUTCSeconds();
+
+	if (seconds < 0) { seconds += 60;  minutes-- }
+	if (minutes < 0) { minutes += 60;  hours--   }
+	if (hours   < 0) { hours   += 24;  days--    }
+	if (days    < 0) { days    += dim; months--  }
+	if (months  < 0) { months  += 12;  years--   }
+
+	if (years < 0) {
+		window.location.href = "sorry.html"
+	}
+	else {
+		if (seconds < 10) { seconds = "0" + seconds }
+		if (minutes < 10) { minutes = "0" + minutes }
+		window.location.href = "main.php"
+	}
+}
+
+window.onload = function() {
+	countdown();    // Call the function once now so we don't have to wait a second for the first update to display
+	setInterval("countdown()", 1000);
+}
+</script>
+</html>

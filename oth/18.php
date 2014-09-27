@@ -1,0 +1,202 @@
+<?php
+
+?>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>KNOW YOUR GK</title>
+<style type="text/css"><!--
+
+body, h1, h2, h3, h4, h5, h6
+{
+	font-family: "Segoe UI, Franklin Gothic Medium, Arial, sans-serif";
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	color: #5d6a86;
+}
+
+body
+{
+	cursor: default;
+	font-size: small;
+}
+
+.ecw-answerbox
+{
+	color: black;
+	background-color: #FFFAF0;
+	border-color: #808080;
+	border-style: solid;
+	border-width: 1px;
+	display: block;
+	padding: .75em;
+	width: 240pt;
+}
+
+.ecw-box
+{
+	border-style: solid;
+	border-width: 1pt;
+	cursor: pointer;
+	font-size: .12in;
+	font-weight: bold;
+	height: .18in;
+	overflow: hidden;
+	text-align: center;
+	width: .18in;
+}
+
+.ecw-boxerror_sel
+{
+	background-color: #FFF1D7;
+	border-color: #C00000;
+	color: #BF0000;
+}
+
+.ecw-boxerror_unsel
+{
+	background-color: #FFF0F0;
+	border-color: #606060;
+	color: #BF0000;
+}
+
+.ecw-boxnormal_sel
+{
+	background-color: #FFF1D7;
+	border-color: #C00000;
+	color: #000000;
+}
+
+.ecw-boxnormal_unsel
+{
+	background-color: #ffffff;
+	border-color: #606060;
+	color: #000000;
+}
+
+.ecw-button
+{
+	width: 64pt;
+}
+
+.ecw-cluebox
+{
+	border-bottom-width: 1px;
+	border-color: #c0c0c0;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-style: solid;
+	border-top-width: 1px;
+	margin-top: 1em;
+	padding-bottom: .5em;
+	padding-left: 0pt;
+	padding-right: 0pt;
+	padding-top: .5em;
+}
+
+.ecw-crosswordarea
+{
+	background-color: #D0D8E0;
+	border-color: #808080;
+	border-style: solid;
+	border-width: 2px;
+	padding: .5em;
+	font-family: "Segoe UI, Verdana, Arial, sans-serif";
+	font-size: small;
+}
+
+.ecw-copyright
+{
+	margin-bottom: 1em;
+	font-size: x-small;
+	font-family: "Segoe UI, Franklin Gothic Medium, Arial, sans-serif";
+}
+
+.ecw-input
+{
+	font-family: "Segoe UI, Franklin Gothic Medium, Arial, sans-serif";
+}
+
+.ecw-wordlabel
+{
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.ecw-wordinfo
+{
+	font-size: 8pt;
+	color: #808080;
+}
+
+.ecw-worderror
+{
+	color: #c00000;
+	font-weight: bold;
+	display: none;
+	margin-top: 1em;
+}
+
+--></style>
+
+</head><body>
+<center>
+<h1>KNOW YOUR GK</h1>
+
+<div id="waitmessage" class="ecw-answerbox">
+	This interactive crossword puzzle requires JavaScript and any 
+	recent web browser, including Windows Internet Explorer, Mozilla Firefox, Google Chrome, or 
+	Apple Safari.  If you have disabled web page scripting, please re-enable it and refresh
+	the page.  If this web page is saved on your computer, you may need to click the yellow Information Bar at the top or bottom of
+	the page to allow the puzzle to load.
+</div>
+
+<table cellpadding="0" cellspacing="0" border="0"><tr>
+
+<td class="ecw-crosswordarea">
+
+<script type="text/javascript" src="init.js"></script>
+
+<script type="text/javascript" src="check.js"></script>
+
+</td>
+
+<td valign="top" style="padding-left: 1em;">
+
+<div id="welcomemessage" class="ecw-answerbox" style="display:none;">
+<h3>Welcome!</h3>
+<p>Click a word in the puzzle to get started.</p>
+</div>
+
+<div id="answerbox" class="ecw-answerbox" style="display:none;">
+<h3 id="wordlabel" class="ecw-wordlabel">&nbsp; </h3>
+<div id="wordinfo" class="ecw-wordinfo"> </div>
+<div id="wordclue" class="ecw-cluebox"> </div>
+<div style="margin-top: 1em;">
+	<input class="ecw-input" id="wordentry" type="text" size="24" style="font-weight: bold; text-transform:uppercase;" onkeypress="WordEntryKeyPress(event)" onchange="WordEntryKeyPress(event)" />
+</div>
+<div id="worderror" class="ecw-worderror"></div>
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style="margin-top:1em;"><tbody><tr><td>
+</td><td align="right">
+<button id="okbutton" type="button" class="ecw-input ecw-button" onclick="OKClick();" style="font-weight: bold;">OK</button> &nbsp;
+<button id="cancelbutton" type="button" class="ecw-input ecw-button" onclick="DeselectCurrentWord();">Cancel</button>
+</td></tr></tbody></table>
+
+</div>
+
+</td></tr></table>
+
+<div style="margin-top: 1em;">
+	<button id="checkbutton" type="button" onclick="CheckClick();" style="display: none;">Check puzzle</button>
+</div>
+
+<script type="text/javascript" src="begin.js">
+</script>
+
+
+</center>
+</body></html>
+
